@@ -1,0 +1,16 @@
+echo "Enter the number of rows: "
+read num;
+
+for ((j=1; j<=num; j++))
+do
+	for ((i=1; i<=num-j; i++))
+	do
+		echo -n " "
+	done
+	
+	for ((k=1; k<=j; k++))
+	do
+		echo -n "*" 
+	done
+	echo
+done
