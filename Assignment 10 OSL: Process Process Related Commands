@@ -1,0 +1,40 @@
+listProcesses() {
+	echo "list all the processes: "
+	ps
+}
+
+processInfo() {
+	read -p "Enter the pid of the process: " pid
+	echo "Information about the process $pid: "
+	ps -p $pid
+}
+
+globalPriority() {
+	read -p "Enter the pid of the process: " pid
+	echo "global priority $pid: "
+	ps -p $pid -o pid, pri
+}
+
+changePriority() {
+	read -p "Enter the pid of the process: " pid
+	read -p "Enter the new priority (default: 10): " priority
+	priority=${priority:-10}
+	renice $priority $pid
+	echo "Priority of the process $pd changed to $priority"
+}
+
+while true; do
+	echo "1. list processes"
+	echo "2. process info"
+	echo "3. global priority"
+	echo "4. change priority (default: 10)"
+	echo "5. exit"
+	read -p "Choose an option (1-5): " choice
+	case $choice in 
+		1) listProcesses;;
+		2) processInfo;;
+		3) globalPriority;;
+		4) changePriority;;
+		5) echo "Exiting" ; exit ;;
+	esac
+done
