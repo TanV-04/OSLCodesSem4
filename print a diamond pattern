@@ -1,0 +1,34 @@
+#!/bin/bash
+
+echo "Enter the number of rows for the diamond (odd number): "
+read rows
+
+# Check if the number of rows is odd
+if [ $((rows % 2)) -eq 0 ]; then
+    echo "Number of rows must be odd."
+    exit 1
+fi
+
+# Upper half of the diamond
+for ((i = 1; i <= rows; i += 2)); do
+    # Calculate the number of spaces before the asterisks
+    spaces=$(( (rows - i) / 2 ))
+    
+    # Print the spaces
+    for ((j = 0; j < spaces; j++)); do
+        echo -n " "
+    done
+
+    # Print the asterisks
+    for ((j = 0; j < i; j++)); do
+        echo -n "*"
+    done
+
+    # Move to the next line
+    echo ""
+done
+
+# Lower half of the diamond
+for ((i = rows - 2; i >= 1; i -= 2)); do
+    # Calculate the number of spaces before the asterisks
+    spaces=$(( (rows - 
