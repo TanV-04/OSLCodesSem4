@@ -1,0 +1,18 @@
+for ((x=1; x<=5; x++)) 
+do
+	for ((spaces=x; spaces<=5; spaces++))
+	do
+		echo -n " ";
+	done
+	
+	for ((i=1; i<=x; i++))
+	do
+		echo -n "*";
+	done
+	
+	for ((j=1; j<x; j++))
+	do
+		echo -n "*";
+	done
+	echo;
+done;
