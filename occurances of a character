@@ -1,0 +1,7 @@
+echo "enter str: "
+read str
+
+echo "Enter chaacer:"
+read chara;
+
+occurance=$(echo "$str" | grep -o "$chara" | wc -l)
